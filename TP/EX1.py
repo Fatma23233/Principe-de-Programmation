@@ -13,3 +13,10 @@ def home():
 # Activer mode Debug pour voir les erreurs et recharger automatiquement le serverur
 if __name__=='__main__':
     app.run(debug=True)
+
+
+@app.route('/students', methods=['GET'])
+
+def get_students():
+    "jsonif transforme la liste students en json"
+    return jsonify(students)
