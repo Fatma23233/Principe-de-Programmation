@@ -25,7 +25,7 @@ Un **microservice** est une petite application autonome qui exécute une fonctio
 * Scalabilité fine pour chaque service.
 
 > **Exemple :** Dans une application e-commerce, un microservice peut gérer uniquement le panier, un autre la gestion des produits.
-
+![APP E-commerce](images/app_mi.png)
 
 
 ### 1.2 API (Application Programming Interface)
