@@ -26,5 +26,7 @@ def add_student():
     students.append(new_student)
     return jsonify(new_student), 201
 
+# afficher un etudiant 
+
 if __name__ == '__main__':
     app.run(debug=True)
