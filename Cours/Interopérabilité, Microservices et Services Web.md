@@ -1,0 +1,212 @@
+
+Ce cours présente les concepts essentiels pour construire et maintenir des applications modernes et modulaires.
+Nous aborderons :
+
+* Les microservices et l’interopérabilité.
+* Les architectures distribuées et microservices.
+* L’architecture maître-esclave.
+* Remote Method Invocation (RMI) et objets distribués.
+* Les services web SOAP et REST.
+
+Chaque section inclut des définitions, des explications, des exemples et des schémas pour faciliter la compréhension.
+
+
+
+## 1. Définitions et notions clés
+
+### 1.1 Microservice
+
+Un **microservice** est une petite application autonome qui exécute une fonction spécifique dans un système plus large.
+
+**Avantages :**
+
+* Développement et maintenance indépendants.
+* Déploiement ciblé par fonctionnalité.
+* Scalabilité fine pour chaque service.
+
+> **Exemple :** Dans une application e-commerce, un microservice peut gérer uniquement le panier, un autre la gestion des produits.
+
+![APP E-commerce](images/app_mi.png)
+
+
+### 1.2 API (Application Programming Interface)
+
+Une **API** permet à différentes applications ou services de communiquer.
+
+**Types :**
+
+* **REST** : HTTP + JSON/XML.
+* **GraphQL** : récupération précise des données.
+* **SOAP** : standard XML formel.
+
+**Rôle :** exposer les fonctionnalités d’un service pour qu’elles soient utilisées par d’autres services ou applications.
+
+
+
+### 1.3 Interopérabilité
+
+**Interopérabilité** : capacité de plusieurs systèmes à communiquer et échanger des informations de manière fiable et standardisée.
+
+**Comment l’assurer :**
+
+* Choix de standards d’échange (REST, GraphQL, SOAP, SAW).
+* Formats standardisés (JSON, XML).
+* Adaptation et modélisation pour faciliter l’intégration.
+
+
+
+### 1.4 Architecture distribuée vs monolithique
+
+* **Monolithique** : toutes les fonctionnalités dans une seule application. Limites : difficile à faire évoluer, scalabilité complexe.
+* **Distribuée / microservices** : fonctionnalités réparties entre plusieurs services indépendants. Avantages : scalabilité, résilience, déploiement indépendant.
+
+
+
+### 1.5 Scalabilité
+
+Capacité d’une application à gérer une charge plus importante :
+
+* **Horizontale** : ajouter plus de serveurs/services identiques.
+* **Verticale** : augmenter les ressources d’un serveur (CPU, RAM).
+
+
+### 1.6 Architecture maître-esclave
+
+* Le **maître** coordonne les nœuds esclaves.
+* Les **esclaves** exécutent des tâches et renvoient les résultats.
+* Redondance possible pour le maître en cas de panne.
+
+
+
+### 1.7 RMI (Remote Method Invocation)
+
+* Permet d’invoquer des méthodes sur des objets situés sur une autre machine.
+* **Objet distribué** : accessible à distance.
+* Communication via **TCP/IP**, nécessitant transparence réseau.
+
+**Cycle :**
+
+1. Le client appelle la méthode.
+2. Le stub (proxy) sérialise les données.
+3. Le skeleton reçoit, exécute et renvoie le résultat.
+4. Le stub désérialise la réponse.
+
+**Avantages :** 100% Java, simplicité, transparence réseau.
+**Limites :** dépendance à Java, performance inférieure à SOAP/REST.
+
+
+
+### 1.8 Services Web SOAP et REST
+
+* **SOAP** : architecture standard XML, formelle, avec `Envelope`, `Header`, `Body`.
+* **REST** : architecture légère, HTTP + JSON/XML.
+
+**Architecture SOAP :**
+
+* Service provider : fournit le service.
+* Service request : émet la requête.
+* Service registry : registre des services disponibles.
+
+
+
+## 2. De l’interopérabilité à l’architecture microservices
+
+### 2.1 Pourquoi et comment assurer l’interopérabilité ?
+
+* Standards d’échange : REST, SAW, GraphQL…
+* Formats : JSON, XML…
+* Mise en place d’API pour exposer les fonctionnalités.
+* Adaptation et modélisation pour faciliter l’intégration.
+
+> **Schéma suggéré :** Diagramme montrant microservices communiquant via API REST/GraphQL.
+
+
+
+### 2.2 Évolution vers les architectures distribuées
+
+* Limites des architectures monolithiques : difficile à évoluer, déploiement long, couplage fort.
+* Besoin d’indépendance des modules.
+* Déploiement par service pour répartir la charge.
+
+> **Schéma suggéré :** Comparatif Monolithique vs Microservices.
+
+
+### 2.3 Pourquoi adopter une architecture microservices ?
+
+* Flexibilité technologique.
+* Déploiement indépendant et automatisé (CI/CD).
+* Résilience : un service en panne ne bloque pas l’ensemble.
+* Scalabilité fine selon les besoins métiers.
+* Adaptation aux organisations agiles.
+
+> **Schéma suggéré :** Microservice en panne, les autres continuent.
+
+
+
+### 2.4 Architecture maître-esclave
+
+* Tous les nœuds échangent des messages.
+* Si un esclave tombe en panne, le maître continue.
+* Redondance pour le maître possible.
+
+> **Schéma suggéré :** Architecture maître-esclave.
+
+
+
+## 3. Remote Method Invocation (RMI)
+
+### 3.1 Concepts
+
+* RMI : invoquer une méthode sur un objet distant.
+* Objet distribué : accessible à distance via TCP/IP.
+
+### 3.2 Historique
+
+* Avant RMI : CORBA, DCOM, Courbat.
+* Interface : créer des applications faiblement couplées.
+
+### 3.3 Cycle d’invocation
+
+1. Client appelle la méthode.
+2. Stub sérialise et envoie la requête.
+3. Skeleton exécute et renvoie le résultat.
+4. Stub désérialise la réponse.
+
+### 3.4 Comparatif des technologies
+
+| Technologie | Langages          | Type            | Complexité         |
+| ----------- | ----------------- | --------------- | ------------------ |
+| RMI         | Java              | Objet distribué | Simple mais limité |
+| CORBA       | Multi-langages    | Objet distant   | Plus complexe      |
+| REST/SOAP   | Tous les langages | Web service     | Standardisé        |
+
+> **Schéma suggéré :** Cycle RMI avec stub/skeleton.
+
+
+## 4. Services Web SOAP et REST
+
+### 4.1 Définition
+
+* SOAP : XML standardisé.
+* REST : HTTP + JSON/XML, plus léger.
+
+### 4.2 Architecture SOAP
+
+* Service provider, Service request, Service registry.
+
+### 4.3 Architecture d’un message SOAP
+
+* Envelope (racine), Header (technique), Body (données applicatives).
+
+> **Schéma suggéré :** Flux client ↔ SOAP message.
+
+
+
+## 5. Synthèse
+
+* Interopérabilité = base pour passer du monolithique au microservices.
+* RMI, CORBA, SOAP et REST = moyens de communication.
+* Microservices = résilience, scalabilité, flexibilité.
+* Architecture maître-esclave et services web = distribution efficace des tâches.
+
+
