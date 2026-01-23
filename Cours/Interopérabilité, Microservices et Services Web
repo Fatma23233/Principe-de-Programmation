@@ -1,9 +1,4 @@
 
-
-# Cours : Interopérabilité, Microservices et Services Web
-
-## 0. Introduction
-
 Ce cours présente les concepts essentiels pour construire et maintenir des applications modernes et modulaires.
 Nous aborderons :
 
@@ -15,7 +10,7 @@ Nous aborderons :
 
 Chaque section inclut des définitions, des explications, des exemples et des schémas pour faciliter la compréhension.
 
----
+
 
 ## 1. Définitions et notions clés
 
@@ -31,7 +26,7 @@ Un **microservice** est une petite application autonome qui exécute une fonctio
 
 > **Exemple :** Dans une application e-commerce, un microservice peut gérer uniquement le panier, un autre la gestion des produits.
 
----
+
 
 ### 1.2 API (Application Programming Interface)
 
@@ -45,7 +40,7 @@ Une **API** permet à différentes applications ou services de communiquer.
 
 **Rôle :** exposer les fonctionnalités d’un service pour qu’elles soient utilisées par d’autres services ou applications.
 
----
+
 
 ### 1.3 Interopérabilité
 
@@ -57,14 +52,14 @@ Une **API** permet à différentes applications ou services de communiquer.
 * Formats standardisés (JSON, XML).
 * Adaptation et modélisation pour faciliter l’intégration.
 
----
+
 
 ### 1.4 Architecture distribuée vs monolithique
 
 * **Monolithique** : toutes les fonctionnalités dans une seule application. Limites : difficile à faire évoluer, scalabilité complexe.
 * **Distribuée / microservices** : fonctionnalités réparties entre plusieurs services indépendants. Avantages : scalabilité, résilience, déploiement indépendant.
 
----
+
 
 ### 1.5 Scalabilité
 
@@ -73,7 +68,6 @@ Capacité d’une application à gérer une charge plus importante :
 * **Horizontale** : ajouter plus de serveurs/services identiques.
 * **Verticale** : augmenter les ressources d’un serveur (CPU, RAM).
 
----
 
 ### 1.6 Architecture maître-esclave
 
@@ -81,7 +75,7 @@ Capacité d’une application à gérer une charge plus importante :
 * Les **esclaves** exécutent des tâches et renvoient les résultats.
 * Redondance possible pour le maître en cas de panne.
 
----
+
 
 ### 1.7 RMI (Remote Method Invocation)
 
@@ -99,7 +93,7 @@ Capacité d’une application à gérer une charge plus importante :
 **Avantages :** 100% Java, simplicité, transparence réseau.
 **Limites :** dépendance à Java, performance inférieure à SOAP/REST.
 
----
+
 
 ### 1.8 Services Web SOAP et REST
 
@@ -112,7 +106,7 @@ Capacité d’une application à gérer une charge plus importante :
 * Service request : émet la requête.
 * Service registry : registre des services disponibles.
 
----
+
 
 ## 2. De l’interopérabilité à l’architecture microservices
 
@@ -125,7 +119,7 @@ Capacité d’une application à gérer une charge plus importante :
 
 > **Schéma suggéré :** Diagramme montrant microservices communiquant via API REST/GraphQL.
 
----
+
 
 ### 2.2 Évolution vers les architectures distribuées
 
@@ -135,7 +129,6 @@ Capacité d’une application à gérer une charge plus importante :
 
 > **Schéma suggéré :** Comparatif Monolithique vs Microservices.
 
----
 
 ### 2.3 Pourquoi adopter une architecture microservices ?
 
@@ -147,7 +140,7 @@ Capacité d’une application à gérer une charge plus importante :
 
 > **Schéma suggéré :** Microservice en panne, les autres continuent.
 
----
+
 
 ### 2.4 Architecture maître-esclave
 
@@ -157,7 +150,7 @@ Capacité d’une application à gérer une charge plus importante :
 
 > **Schéma suggéré :** Architecture maître-esclave.
 
----
+
 
 ## 3. Remote Method Invocation (RMI)
 
@@ -188,7 +181,6 @@ Capacité d’une application à gérer une charge plus importante :
 
 > **Schéma suggéré :** Cycle RMI avec stub/skeleton.
 
----
 
 ## 4. Services Web SOAP et REST
 
@@ -207,7 +199,7 @@ Capacité d’une application à gérer une charge plus importante :
 
 > **Schéma suggéré :** Flux client ↔ SOAP message.
 
----
+
 
 ## 5. Synthèse
 
@@ -216,29 +208,4 @@ Capacité d’une application à gérer une charge plus importante :
 * Microservices = résilience, scalabilité, flexibilité.
 * Architecture maître-esclave et services web = distribution efficace des tâches.
 
----
 
-## 📂 Organisation GitHub recommandée
-
-```
-Principe-de-Programmation/
-├── README.md
-├── 1_Introduction_et_Definitions.md
-├── 2_Interop_Architecture.md
-├── 3_RMI.md
-├── 4_Services_Web.md
-├── images/
-│   ├── microservices_rest.png
-│   ├── arch_monolith_vs_micro.png
-│   ├── maitre_esclave.png
-│   ├── rmi_cycle.png
-│   └── soap_message.png
-```
-
-> Chaque image correspond à un schéma illustrant les concepts pour rendre le cours **facile à lire et comprendre**.
-
----
-
-Si tu veux, je peux maintenant **générer tous les schémas visuels correspondants**, et te fournir **les fichiers Markdown prêts à pousser sur GitHub** avec cette structure complète.
-
-Veux‑tu que je fasse ça ?
