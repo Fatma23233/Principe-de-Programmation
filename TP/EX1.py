@@ -44,10 +44,12 @@ def update_student(id):
     if not student:
         return jsonify({"message":"Etudiant non trouvé !"}), 404
     
-    data=request.get__json()
+    data=request.get_json()
     student.update(data) # Mis à jour de données
     return jsonify(student)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+#mimi_exo méthode DELETE
