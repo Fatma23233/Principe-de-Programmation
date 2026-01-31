@@ -157,8 +157,8 @@ Avec SOAP / REST :
 * Le monolithique devient fragile
 * Les microservices permettent la modularité
 
-**Lien TP**
-Ton service SOAP = **un module indépendant**.
+
+Service SOAP = **un module indépendant**.
 
 ---
 
