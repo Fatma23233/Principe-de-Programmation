@@ -52,14 +52,14 @@ Une **API** est un **contrat** qui permet à des applications différentes de co
 * **SOAP** → XML / standard formel
 * **GraphQL** → données ciblées
 
-📌 **Lien TP**
+**Lien TP**
 Dans les TP, le service SOAP expose une **API SOAP**, décrite par un **WSDL**.
 
 ---
 
 ### 1.3 Interopérabilité
 
-👉 **Interopérabilité** = capacité de systèmes différents à communiquer **sans dépendre du langage ou de la plateforme**.
+ **Interopérabilité** = capacité de systèmes différents à communiquer **sans dépendre du langage ou de la plateforme**.
 
 **Assurée par :**
 
@@ -67,7 +67,7 @@ Dans les TP, le service SOAP expose une **API SOAP**, décrite par un **WSDL**.
 * Formats universels (XML, JSON)
 * Description formelle (WSDL)
 
-📌 **TP1 / TP2**
+ **TP1 / TP2**
 SoapUI (client) ↔ Service Java
 ➡️ deux outils différents, mais communication réussie grâce à SOAP.
 
@@ -82,7 +82,7 @@ SoapUI (client) ↔ Service Java
 
 ![Image](https://www.clariontech.com/hubfs/Monolithic%20Architecture%20Vs.%20Microservices.jpg)
 
-📌 **TP**
+ **TP**
 Ton service SOAP est **un premier pas vers une architecture distribuée**.
 
 ---
@@ -92,7 +92,7 @@ Ton service SOAP est **un premier pas vers une architecture distribuée**.
 * **Verticale** : augmenter les ressources d’un serveur
 * **Horizontale** : multiplier les services
 
-📌 Les microservices (et services SOAP) facilitent la scalabilité horizontale.
+ Les microservices (et services SOAP) facilitent la scalabilité horizontale.
 
 ---
 
@@ -123,7 +123,7 @@ RMI permet d’appeler une méthode sur un **objet distant Java**.
 
 ![Image](https://infolab.stanford.edu/CHAIMS/Doc/Details/Protocols/rmi/rmi1.gif)
 
-📌 **Comparaison TP**
+**Comparaison TP**
 
 * RMI : Java uniquement
 * SOAP : multi-langage → **plus universel**
@@ -157,7 +157,7 @@ Avec SOAP / REST :
 * Le monolithique devient fragile
 * Les microservices permettent la modularité
 
-📌 **Lien TP**
+**Lien TP**
 Ton service SOAP = **un module indépendant**.
 
 ---
@@ -184,7 +184,7 @@ RMI fut une première solution pour distribuer des objets, mais :
 
 SOAP et REST ont pris le relais.
 
-📌 **Transition pédagogique**
+ **Transition pédagogique**
 TP1/TP2 montrent **l’évolution naturelle : RMI → SOAP**.
 
 ---
@@ -213,7 +213,7 @@ TP1/TP2 montrent **l’évolution naturelle : RMI → SOAP**.
 * Requester (SoapUI)
 * Registry (WSDL)
 
-📌 **TP1 & TP2**
+ **TP1 & TP2**
 
 * `Application.java` → Provider
 * `SoapUI` → Requester
@@ -230,7 +230,7 @@ Dans le TP2 :
 
 ➡️ JAXB transforme l’objet Java en XML.
 
-📌 **Exemple réel**
+ **Exemple réel**
 `getEtudiant()` retourne :
 
 ```xml
@@ -252,26 +252,5 @@ Dans le TP2 :
 * TP1 : échanges simples
 * TP2 : échanges d’objets
 
-👉 **Les TP illustrent concrètement la théorie du cours.**
 
----
 
-### 🎯 Conclusion pédagogique
-
-Ce cours + TP montrent le passage :
-
-> **Théorie → Pratique → Architecture réelle**
-
-Tu peux clairement le présenter comme :
-
-> *“Une introduction complète aux architectures distribuées avec application pratique via SOAP et Java.”*
-
----
-
-Si tu veux, je peux maintenant :
-
-* t’aider à **insérer les vraies captures d’écran** dans le bon ordre
-* transformer tout ça en **PDF universitaire**
-* rédiger une **conclusion globale cours + TP**
-
-Dis-moi 💪
