@@ -1,14 +1,11 @@
 
 # 🌟 Principe de Programmation – Cours & Travaux Pratiques
 
-![banner](https://user-images.githubusercontent.com/107123456/placeholder-banner.png)
-*Illustration conceptuelle des microservices et API*
 
----
 
 ## 📌 Présentation générale
 
-Bienvenue dans ce dépôt GitHub ! 🎉
+Bienvenue dans ce dépôt GitHub ! 
 Il regroupe **tout le contenu du cours** ainsi que **les TP réalisés** dans le cadre du module **Principe de Programmation**.
 
 * Ce n’est pas un projet unique, mais un **ensemble pédagogique**.
@@ -22,10 +19,10 @@ Il regroupe **tout le contenu du cours** ainsi que **les TP réalisés** dans le
 Ce dépôt te permet de :
 
 * Comprendre les **architectures distribuées** 
-* Explorer les **services web SOAP et REST** 🌐
-* Mettre en pratique la **programmation orientée objet et l’échange de données** 🔄
-* Relier la **théorie à la pratique** à travers des TP concrets 💻
-* Se familiariser avec les outils modernes (Java, Python, Flask, SOAP UI, Git) 🛠️
+* Explorer les **services web SOAP et REST** 
+* Mettre en pratique la **programmation orientée objet et l’échange de données** 
+* Relier la **théorie à la pratique** à travers des TP concrets 
+* Se familiariser avec les outils modernes (Java, Python, Flask, SOAP UI, Git) 
 
 ---
 
@@ -43,16 +40,12 @@ Le cours couvre les concepts suivants :
 
 > Chaque notion est accompagnée de **schémas, exemples et comparatifs** pour faciliter la compréhension.
 
-![archi](https://user-images.githubusercontent.com/107123456/placeholder-archi.png)
-*Exemple de schéma : architecture distribuée et microservices*
 
 ---
 
 ## 🧪 Travaux Pratiques (TP)
 
 ### 🔹 TP1 – Service Web SOAP (Java)
-
-![soap](https://user-images.githubusercontent.com/107123456/placeholder-soap.png)
 
 **Technologies utilisées :** Java 8, JAX-WS, JAXB, IntelliJ IDEA, SOAP UI
 
@@ -74,8 +67,6 @@ Le cours couvre les concepts suivants :
 ---
 
 ### 🔹 TP2 – API REST (Flask / Python)
-
-![flask](https://user-images.githubusercontent.com/107123456/placeholder-flask.png)
 
 **Technologies utilisées :** Python, Flask, JSON, HTTP
 
@@ -130,7 +121,7 @@ Ce dépôt est une **ressource complète** combinant :
 
 Il permet de comprendre **les fondamentaux des architectures distribuées et des services web** tout en se familiarisant avec les outils et méthodes utilisés dans le développement moderne.
 
-![fun](https://user-images.githubusercontent.com/107123456/placeholder-fun.png)
+
 *Explore, expérimente, et amuse-toi en programmant ! *
 
 ---
