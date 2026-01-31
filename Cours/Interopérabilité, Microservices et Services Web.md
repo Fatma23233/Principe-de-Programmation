@@ -102,7 +102,8 @@ Ton service SOAP est **un premier pas vers une architecture distribuée**.
 * Les **esclaves** exécutent
 * Tolérance aux pannes
 
-![Image](https://www.researchgate.net/publication/324673919/figure/fig3/AS%3A617699520565248%401524282450069/A-graphical-illustration-of-the-modified-master-slave-architecture-with-which-we.png)
+<img width="850" height="638" alt="A-graphical-illustration-of-the-modified-master-slave-architecture-with-which-we" src="https://github.com/user-attachments/assets/818ff9a8-dd38-46bc-b4dc-462f86ab86ae" />
+
 
 ![Image](https://www.researchgate.net/publication/317299391/figure/fig1/AS%3A540208529670144%401505807158195/Master-slave-architecture.png)
 
