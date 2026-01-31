@@ -1,212 +1,277 @@
 
-Ce cours présente les concepts essentiels pour construire et maintenir des applications modernes et modulaires.
+# Cours – Architectures distribuées, interopérabilité et services Web
+
+Ce cours présente les **concepts essentiels** pour construire, comprendre et maintenir des **applications modernes, modulaires et distribuées**.
+Il s’appuie sur des **exemples concrets réalisés en TP (TP1 & TP2)** basés sur **SOAP, JAX-WS et Java**.
+
 Nous aborderons :
 
-* Les microservices et l’interopérabilité.
-* Les architectures distribuées et microservices.
-* L’architecture maître-esclave.
-* Remote Method Invocation (RMI) et objets distribués.
-* Les services web SOAP et REST.
+* Les microservices et l’interopérabilité
+* Les architectures distribuées
+* L’architecture maître-esclave
+* Remote Method Invocation (RMI)
+* Les services Web SOAP et REST
 
-Chaque section inclut des définitions, des explications, des exemples et des schémas pour faciliter la compréhension.
+Chaque section contient **des définitions, des explications, des schémas et un lien avec les TPs**.
 
-
+---
 
 ## 1. Définitions et notions clés
 
-### 1.1 Microservice
+### 1.1 Microservices
 
-Un **microservice** est une petite application autonome qui exécute une fonction spécifique dans un système plus large.
+Un **microservice** est une application **autonome**, spécialisée dans une **fonction précise**, communiquant avec d’autres services via des **API**.
 
 **Avantages :**
 
-* Développement et maintenance indépendants.
-* Déploiement ciblé par fonctionnalité.
-* Scalabilité fine pour chaque service.
+* Développement indépendant
+* Déploiement séparé
+* Scalabilité ciblée
+* Maintenance facilitée
 
-> **Exemple :** Dans une application e-commerce, un microservice peut gérer uniquement le panier, un autre la gestion des produits.
+> **Exemple réel (TP1 & TP2)**
+> Le service SOAP développé agit comme un microservice exposant :
+>
+> * `conversion`
+> * `somme`
+> * `getEtudiant`
 
-![APP E-commerce](images/app_mi.png)
+![Image](https://microservices.io/i/Microservice_Architecture.png)
 
+![Image](https://miro.medium.com/0%2AxuHRipbS0io0EYVl.png)
+
+---
 
 ### 1.2 API (Application Programming Interface)
 
-Une **API** permet à différentes applications ou services de communiquer.
+Une **API** est un **contrat** qui permet à des applications différentes de communiquer.
 
-**Types :**
+**Types principaux :**
 
-* **REST** : HTTP + JSON/XML.
-* **GraphQL** : récupération précise des données.
-* **SOAP** : standard XML formel.
+* **REST** → JSON / HTTP
+* **SOAP** → XML / standard formel
+* **GraphQL** → données ciblées
 
-**Rôle :** exposer les fonctionnalités d’un service pour qu’elles soient utilisées par d’autres services ou applications.
+📌 **Lien TP**
+Dans les TP, le service SOAP expose une **API SOAP**, décrite par un **WSDL**.
 
-
+---
 
 ### 1.3 Interopérabilité
 
-**Interopérabilité** : capacité de plusieurs systèmes à communiquer et échanger des informations de manière fiable et standardisée.
+👉 **Interopérabilité** = capacité de systèmes différents à communiquer **sans dépendre du langage ou de la plateforme**.
 
-**Comment l’assurer :**
+**Assurée par :**
 
-* Choix de standards d’échange (REST, GraphQL, SOAP, SAW).
-* Formats standardisés (JSON, XML).
-* Adaptation et modélisation pour faciliter l’intégration.
+* Standards (SOAP, REST)
+* Formats universels (XML, JSON)
+* Description formelle (WSDL)
 
+📌 **TP1 / TP2**
+SoapUI (client) ↔ Service Java
+➡️ deux outils différents, mais communication réussie grâce à SOAP.
 
+---
 
-### 1.4 Architecture distribuée vs monolithique
+### 1.4 Architecture monolithique vs distribuée
 
-* **Monolithique** : toutes les fonctionnalités dans une seule application. Limites : difficile à faire évoluer, scalabilité complexe.
-* **Distribuée / microservices** : fonctionnalités réparties entre plusieurs services indépendants. Avantages : scalabilité, résilience, déploiement indépendant.
+* **Monolithique** : une seule application, tout est couplé
+* **Distribuée** : services indépendants
 
+![Image](https://miro.medium.com/v2/resize%3Afit%3A1200/1%2AaSdnOJNT2UoiaAhy-vuV_Q.png)
 
+![Image](https://www.clariontech.com/hubfs/Monolithic%20Architecture%20Vs.%20Microservices.jpg)
+
+📌 **TP**
+Ton service SOAP est **un premier pas vers une architecture distribuée**.
+
+---
 
 ### 1.5 Scalabilité
 
-Capacité d’une application à gérer une charge plus importante :
+* **Verticale** : augmenter les ressources d’un serveur
+* **Horizontale** : multiplier les services
 
-* **Horizontale** : ajouter plus de serveurs/services identiques.
-* **Verticale** : augmenter les ressources d’un serveur (CPU, RAM).
+📌 Les microservices (et services SOAP) facilitent la scalabilité horizontale.
 
+---
 
 ### 1.6 Architecture maître-esclave
 
-* Le **maître** coordonne les nœuds esclaves.
-* Les **esclaves** exécutent des tâches et renvoient les résultats.
-* Redondance possible pour le maître en cas de panne.
+* Le **maître** coordonne
+* Les **esclaves** exécutent
+* Tolérance aux pannes
 
+![Image](https://www.researchgate.net/publication/324673919/figure/fig3/AS%3A617699520565248%401524282450069/A-graphical-illustration-of-the-modified-master-slave-architecture-with-which-we.png)
 
+![Image](https://www.researchgate.net/publication/317299391/figure/fig1/AS%3A540208529670144%401505807158195/Master-slave-architecture.png)
 
-### 1.7 RMI (Remote Method Invocation)
+---
 
-* Permet d’invoquer des méthodes sur des objets situés sur une autre machine.
-* **Objet distribué** : accessible à distance.
-* Communication via **TCP/IP**, nécessitant transparence réseau.
+### 1.7 RMI – Remote Method Invocation
+
+RMI permet d’appeler une méthode sur un **objet distant Java**.
 
 **Cycle :**
 
-1. Le client appelle la méthode.
-2. Le stub (proxy) sérialise les données.
-3. Le skeleton reçoit, exécute et renvoie le résultat.
-4. Le stub désérialise la réponse.
+1. Client → stub
+2. Sérialisation
+3. Exécution distante
+4. Désérialisation
 
-**Avantages :** 100% Java, simplicité, transparence réseau.
-**Limites :** dépendance à Java, performance inférieure à SOAP/REST.
+![Image](https://www.edm2.com/images/9/92/Rmi.gif)
 
+![Image](https://infolab.stanford.edu/CHAIMS/Doc/Details/Protocols/rmi/rmi1.gif)
 
+📌 **Comparaison TP**
 
-### 1.8 Services Web SOAP et REST
+* RMI : Java uniquement
+* SOAP : multi-langage → **plus universel**
 
-* **SOAP** : architecture standard XML, formelle, avec `Envelope`, `Header`, `Body`.
-* **REST** : architecture légère, HTTP + JSON/XML.
+---
 
-**Architecture SOAP :**
+## 2. De l’interopérabilité aux microservices
 
-* Service provider : fournit le service.
-* Service request : émet la requête.
-* Service registry : registre des services disponibles.
+### 2.1 Pourquoi l’interopérabilité est essentielle
 
+Sans interopérabilité :
 
+* impossible de connecter des systèmes hétérogènes
+* dépendance forte à une technologie
 
-## 2. De l’interopérabilité à l’architecture microservices
+Avec SOAP / REST :
 
-### 2.1 Pourquoi et comment assurer l’interopérabilité ?
+* indépendance
+* évolutivité
+* ouverture
 
-* Standards d’échange : REST, SAW, GraphQL…
-* Formats : JSON, XML…
-* Mise en place d’API pour exposer les fonctionnalités.
-* Adaptation et modélisation pour faciliter l’intégration.
+![Image](https://cdn.prod.website-files.com/5ff66329429d880392f6cba2/66d5ef0de8b7d59b71cc74b7_66d5e3421948796f8bbec1f4_6%2520-%25202.09-min.jpeg)
 
-> **Schéma suggéré :** Diagramme montrant microservices communiquant via API REST/GraphQL.
+![Image](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/media/communication-in-microservice-architecture/sync-vs-async-patterns-across-microservices.png)
 
-
+---
 
 ### 2.2 Évolution vers les architectures distribuées
 
-* Limites des architectures monolithiques : difficile à évoluer, déploiement long, couplage fort.
-* Besoin d’indépendance des modules.
-* Déploiement par service pour répartir la charge.
+* Les applications grossissent
+* Le monolithique devient fragile
+* Les microservices permettent la modularité
 
-> **Schéma suggéré :** Comparatif Monolithique vs Microservices.
+📌 **Lien TP**
+Ton service SOAP = **un module indépendant**.
 
+---
 
-### 2.3 Pourquoi adopter une architecture microservices ?
+### 2.3 Pourquoi adopter les microservices
 
-* Flexibilité technologique.
-* Déploiement indépendant et automatisé (CI/CD).
-* Résilience : un service en panne ne bloque pas l’ensemble.
-* Scalabilité fine selon les besoins métiers.
-* Adaptation aux organisations agiles.
+* Déploiement indépendant
+* Résilience
+* Scalabilité
+* Adaptation aux équipes agiles
 
-> **Schéma suggéré :** Microservice en panne, les autres continuent.
+![Image](https://dz2cdn1.dzone.com/storage/temp/17670225-1715269657634.png)
 
+![Image](https://cdn.sayonetech.com/media/media/2024/09/02/sept_02_sayone_inner_2.jpg)
 
+---
 
-### 2.4 Architecture maître-esclave
+## 3. RMI et objets distribués
 
-* Tous les nœuds échangent des messages.
-* Si un esclave tombe en panne, le maître continue.
-* Redondance pour le maître possible.
+RMI fut une première solution pour distribuer des objets, mais :
 
-> **Schéma suggéré :** Architecture maître-esclave.
+* dépendance Java
+* faible interopérabilité
 
+SOAP et REST ont pris le relais.
 
+📌 **Transition pédagogique**
+TP1/TP2 montrent **l’évolution naturelle : RMI → SOAP**.
 
-## 3. Remote Method Invocation (RMI)
-
-### 3.1 Concepts
-
-* RMI : invoquer une méthode sur un objet distant.
-* Objet distribué : accessible à distance via TCP/IP.
-
-### 3.2 Historique
-
-* Avant RMI : CORBA, DCOM, Courbat.
-* Interface : créer des applications faiblement couplées.
-
-### 3.3 Cycle d’invocation
-
-1. Client appelle la méthode.
-2. Stub sérialise et envoie la requête.
-3. Skeleton exécute et renvoie le résultat.
-4. Stub désérialise la réponse.
-
-### 3.4 Comparatif des technologies
-
-| Technologie | Langages          | Type            | Complexité         |
-| ----------- | ----------------- | --------------- | ------------------ |
-| RMI         | Java              | Objet distribué | Simple mais limité |
-| CORBA       | Multi-langages    | Objet distant   | Plus complexe      |
-| REST/SOAP   | Tous les langages | Web service     | Standardisé        |
-
-> **Schéma suggéré :** Cycle RMI avec stub/skeleton.
-
+---
 
 ## 4. Services Web SOAP et REST
 
-### 4.1 Définition
+### 4.1 SOAP vs REST
 
-* SOAP : XML standardisé.
-* REST : HTTP + JSON/XML, plus léger.
+| SOAP       | REST                    |
+| ---------- | ----------------------- |
+| XML formel | JSON léger              |
+| WSDL       | Pas toujours de contrat |
+| Sécurisé   | Rapide                  |
+
+---
 
 ### 4.2 Architecture SOAP
 
-* Service provider, Service request, Service registry.
+![Image](https://www.researchgate.net/publication/220144364/figure/fig3/AS%3A667632667729923%401536187440188/SOAP-based-Web-services-architecture.png)
 
-### 4.3 Architecture d’un message SOAP
+![Image](https://help.genesys.com/pureconnect/mergedprojects/wh_soap/desktop/img/image003.jpg)
 
-* Envelope (racine), Header (technique), Body (données applicatives).
+**Composants :**
 
-> **Schéma suggéré :** Flux client ↔ SOAP message.
+* Provider (Service Java)
+* Requester (SoapUI)
+* Registry (WSDL)
 
+📌 **TP1 & TP2**
 
+* `Application.java` → Provider
+* `SoapUI` → Requester
+* `?wsdl` → Registry
 
-## 5. Synthèse
+---
 
-* Interopérabilité = base pour passer du monolithique au microservices.
-* RMI, CORBA, SOAP et REST = moyens de communication.
-* Microservices = résilience, scalabilité, flexibilité.
-* Architecture maître-esclave et services web = distribution efficace des tâches.
+### 4.3 SOAP et objets (TP2)
 
+Dans le TP2 :
 
+* SOAP ne renvoie plus un simple `double`
+* Il renvoie un **objet `Etudiant`**
+
+➡️ JAXB transforme l’objet Java en XML.
+
+📌 **Exemple réel**
+`getEtudiant()` retourne :
+
+```xml
+<Etudiant>
+  <identifiant>1</identifiant>
+  <nom>Thom</nom>
+  <moyenne>19</moyenne>
+</Etudiant>
+```
+
+---
+
+## 5. Synthèse générale (Cours + TP)
+
+* Interopérabilité = fondation des systèmes modernes
+* SOAP et REST = solutions universelles
+* RMI = approche historique
+* Microservices = modularité et résilience
+* TP1 : échanges simples
+* TP2 : échanges d’objets
+
+👉 **Les TP illustrent concrètement la théorie du cours.**
+
+---
+
+### 🎯 Conclusion pédagogique
+
+Ce cours + TP montrent le passage :
+
+> **Théorie → Pratique → Architecture réelle**
+
+Tu peux clairement le présenter comme :
+
+> *“Une introduction complète aux architectures distribuées avec application pratique via SOAP et Java.”*
+
+---
+
+Si tu veux, je peux maintenant :
+
+* t’aider à **insérer les vraies captures d’écran** dans le bon ordre
+* transformer tout ça en **PDF universitaire**
+* rédiger une **conclusion globale cours + TP**
+
+Dis-moi 💪
