@@ -101,8 +101,24 @@ def update_student(id):
 # L'API est accessible par défaut sur :
 # http://localhost:5000
 # ------------------------------------------------------------
+# ============================================================
+# AJOUTE CE BLOC dans ton EX1.py
+# Juste avant la ligne :  if __name__ == '__main__':
+# ============================================================
+##if __name__ == '__main__':
+    ## app.run(debug=True)
 
+#mimi_exo méthode DELETE
+@app.route('/students/<int:id>', methods=['DELETE'])
+def delete_student(id):
+    global students
+    student = next((s for s in students if s['id'] == id), None)
+    if not student:
+        return jsonify({"error": "Étudiant introuvable"}), 404
+    students = [s for s in students if s['id'] != id]
+    return jsonify({"message": f"Étudiant {id} supprimé"}), 200
+    
 if __name__ == '__main__':
     app.run(debug=True)
 
-#mimi_exo méthode DELETE
+
