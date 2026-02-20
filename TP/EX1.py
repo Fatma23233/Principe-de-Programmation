@@ -118,8 +118,6 @@ def delete_student(id):
     students = [s for s in students if s['id'] != id]
     return jsonify({"message": f"Étudiant {id} supprimé"}), 200
     
-#if __name__ == '__main__':
-    #app.run(debug=True)
 if __name__ == '__main__':
-    import os
-    app.run(debug=False, host='0.0.0.0', port=int(os.environ.get('PORT', 10000)))
+    app.run(debug=True)
+
