@@ -32,6 +32,9 @@ pip install flask flask-cors mysql-connector-python
 - Ouvre **XAMPP Control Panel**
 - Clique **Start** sur **MySQL** → voyant vert ✅
 
+  <img width="500" height="320" alt="image" src="https://github.com/user-attachments/assets/90b46f9e-3f79-4af3-8eb8-b01e4e6779d2" />
+
+
 ### 3️⃣ Créer la base de données (une seule fois)
 
 ```bash
