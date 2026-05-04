@@ -2,7 +2,6 @@
 # 🌟 Principe de Programmation – Cours & Travaux Pratiques
 
 
-# 🌟 Principe de Programmation – Cours & Travaux Pratiques
 ## 📌 Présentation générale
 Bienvenue dans ce dépôt GitHub ! 
 Il regroupe **tout le contenu du cours** ainsi que **les TP réalisés** dans le cadre du module **Principe de Programmation**.
